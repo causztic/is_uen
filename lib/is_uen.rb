@@ -15,9 +15,10 @@ module IsUen
   end
 
   def new_uen?(id)
-    ENTITY_REGEX.match(id.downcase) do |match|
-      VALID_ENTITIES.include?(match[:entity]) && valid_new_uen_year?(match)
-    end
+    match = ENTITY_REGEX.match(id.downcase)
+    return false unless match
+
+    VALID_ENTITIES.include?(match[:entity]) && valid_new_uen_year?(match)
   end
 
   def business?(id)
@@ -25,17 +26,19 @@ module IsUen
   end
 
   def company?(id)
-    /^(?<year>\d{4})\d{5}[a-z]$/i.match(id) do |match|
-      valid_year?(match[:year])
-    end
+    match = /^(?<year>\d{4})\d{5}[a-z]$/i.match(id)
+    return false unless match
+
+    valid_year?(match[:year])
   end
 
   # FIXME: not sure how to effectively test these! will revisit
   VALID_ENTITIES.each do |entity|
     define_singleton_method "#{entity}?" do |id|
-      ENTITY_REGEX.match(id.downcase) do |match|
-        entity == match[:entity] && valid_new_uen_year?(match)
-      end
+      match = ENTITY_REGEX.match(id.downcase)
+      return false unless match
+
+      entity == match[:entity] && valid_new_uen_year?(match)
     end
   end
 

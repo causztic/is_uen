@@ -7,11 +7,11 @@ class IsUenTest < Minitest::Test
     let(:uen) { "R12LP1234X" }
 
     it "is a new UEN" do
-      assert IsUen.new_uen?(uen)
+      assert_true IsUen.new_uen?(uen)
     end
 
     it "is a UEN" do
-      assert IsUen.uen?(uen)
+      assert_true IsUen.uen?(uen)
     end
   end
 
@@ -19,11 +19,11 @@ class IsUenTest < Minitest::Test
     let(:uen) { "S12LP1234X" }
 
     it "is a new UEN" do
-      assert IsUen.new_uen?(uen)
+      assert_true IsUen.new_uen?(uen)
     end
 
     it "is a UEN" do
-      assert IsUen.uen?(uen)
+      assert_true IsUen.uen?(uen)
     end
   end
 
@@ -31,11 +31,11 @@ class IsUenTest < Minitest::Test
     let(:uen) { "T12LP1234X" }
 
     it "is a new UEN" do
-      assert IsUen.new_uen?(uen)
+      assert_true IsUen.new_uen?(uen)
     end
 
     it "is a UEN" do
-      assert IsUen.uen?(uen)
+      assert_true IsUen.uen?(uen)
     end
   end
 
@@ -43,11 +43,11 @@ class IsUenTest < Minitest::Test
     let(:uen) { "U12LP1234X" }
 
     it "is not a new UEN" do
-      refute IsUen.new_uen?(uen)
+      assert_false IsUen.new_uen?(uen)
     end
 
     it "is not a UEN" do
-      refute IsUen.uen?(uen)
+      assert_false IsUen.uen?(uen)
     end
   end
 
@@ -55,11 +55,11 @@ class IsUenTest < Minitest::Test
     let(:uen) { "r12lp1234x" }
 
     it "is a new UEN" do
-      assert IsUen.new_uen?(uen)
+      assert_true IsUen.new_uen?(uen)
     end
 
     it "is a UEN" do
-      assert IsUen.uen?(uen)
+      assert_true IsUen.uen?(uen)
     end
   end
 
@@ -68,11 +68,11 @@ class IsUenTest < Minitest::Test
     let(:uen) { "t99lp1234x" }
 
     it "is not a new UEN" do
-      refute IsUen.new_uen?(uen)
+      assert_false IsUen.new_uen?(uen)
     end
 
     it "is not a UEN" do
-      refute IsUen.uen?(uen)
+      assert_false IsUen.uen?(uen)
     end
   end
 end

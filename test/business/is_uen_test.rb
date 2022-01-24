@@ -7,19 +7,19 @@ class IsUenTest < Minitest::Test
     let(:uen) { "12345678A" }
 
     it "is a UEN" do
-      assert IsUen.uen?(uen)
+      assert_true IsUen.uen?(uen)
     end
 
     it "is a business" do
-      assert IsUen.business?(uen)
+      assert_true IsUen.business?(uen)
     end
 
     it "is not a company" do
-      refute IsUen.company?(uen)
+      assert_false IsUen.company?(uen)
     end
 
     it "is not a new uen" do
-      refute IsUen.new_uen?(uen)
+      assert_false IsUen.new_uen?(uen)
     end
   end
 
@@ -27,19 +27,19 @@ class IsUenTest < Minitest::Test
     let(:uen) { "12345678a" }
 
     it "is a UEN" do
-      assert IsUen.uen?(uen)
+      assert_true IsUen.uen?(uen)
     end
 
     it "is a business" do
-      assert IsUen.business?(uen)
+      assert_true IsUen.business?(uen)
     end
 
     it "is not a company" do
-      refute IsUen.company?(uen)
+      assert_false IsUen.company?(uen)
     end
 
     it "is not a new uen" do
-      refute IsUen.new_uen?(uen)
+      assert_false IsUen.new_uen?(uen)
     end
   end
 end
