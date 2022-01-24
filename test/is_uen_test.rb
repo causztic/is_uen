@@ -12,7 +12,7 @@ class IsUenTest < Minitest::Test
   describe "VALID_ENTITIES" do
     it "has the correct entity codes" do
       assert_equal IsUen::VALID_ENTITIES, %w[LP LL FC PF RF MQ MM NB CC CS MB FM GS DP CP NR CM CD MD HS VH CH MH CL XL
-                                             CX HC RP TU TC FB FN PA PB SS MC SM GA GB].map(&:downcase)
+                                             CX HC RP TU TC FB FN PA PB SS MC SM GA GB]
     end
   end
 end
