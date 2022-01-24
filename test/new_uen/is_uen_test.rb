@@ -50,4 +50,29 @@ class IsUenTest < Minitest::Test
       refute IsUen.uen?(uen)
     end
   end
+
+  describe "lowercased UEN" do
+    let(:uen) { "r12lp1234x" }
+
+    it "is a new UEN" do
+      assert IsUen.new_uen?(uen)
+    end
+
+    it "is a UEN" do
+      assert IsUen.uen?(uen)
+    end
+  end
+
+  describe "UEN in the future" do
+    # FIXME: this test will fail in 2099 (I'll probably be dead then!)
+    let(:uen) { "t99lp1234x" }
+
+    it "is not a new UEN" do
+      refute IsUen.new_uen?(uen)
+    end
+
+    it "is not a UEN" do
+      refute IsUen.uen?(uen)
+    end
+  end
 end

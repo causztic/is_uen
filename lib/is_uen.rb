@@ -16,7 +16,7 @@ module IsUen
 
   def new_uen?(id)
     ENTITY_REGEX.match(id.downcase) do |match|
-      VALID_ENTITIES.include?(match[:entity])
+      VALID_ENTITIES.include?(match[:entity]) && valid_new_uen_year?(match)
     end
   end
 
@@ -34,18 +34,20 @@ module IsUen
   VALID_ENTITIES.each do |entity|
     define_singleton_method "#{entity}?" do |id|
       ENTITY_REGEX.match(id.downcase) do |match|
-        year = YEARS[match[:year]] + match[:decade]
-
-        entity == match[:entity] && valid_year?(year)
+        entity == match[:entity] && valid_new_uen_year?(match)
       end
     end
+  end
+
+  def self.valid_new_uen_year?(match)
+    year = YEARS[match[:year]] + match[:decade]
+    valid_year?(year)
   end
 
   def self.valid_year?(year_string)
     year_string.to_i <= Time.now.year
   end
 
-  private_class_method :valid_year?
-
+  private_class_method :valid_year?, :valid_new_uen_year?
   module_function :uen?, :business?, :company?, :new_uen?
 end
