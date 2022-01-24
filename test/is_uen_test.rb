@@ -3,11 +3,16 @@
 require "test_helper"
 
 class IsUenTest < Minitest::Test
-  def test_that_it_has_a_version_number
-    refute_nil ::IsUen::VERSION
+  describe "version" do
+    it "has a version number" do
+      refute_nil IsUen::VERSION
+    end
   end
 
-  def test_it_does_something_useful
-    assert false
+  describe "VALID_ENTITIES" do
+    it "has the correct entity codes" do
+      assert_equal IsUen::VALID_ENTITIES, %w[LP LL FC PF RF MQ MM NB CC CS MB FM GS DP CP NR CM CD MD HS VH CH MH CL XL
+                                             CX HC RP TU TC FB FN PA PB SS MC SM GA GB]
+    end
   end
 end
