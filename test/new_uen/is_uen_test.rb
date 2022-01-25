@@ -53,7 +53,7 @@ class IsUenTest < Minitest::Test
 
   describe "UEN in the future" do
     # FIXME: this test will fail in 2099 (I'll probably be dead then!)
-    let(:uen) { "t99lp1234x" }
+    let(:uen) { "T99LP1234X" }
 
     it "is not a new UEN" do
       assert_false IsUen.new_uen?(uen)
