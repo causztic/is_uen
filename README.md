@@ -2,7 +2,7 @@
 
 [![Gem Version](https://badge.fury.io/rb/is_uen.svg)](https://badge.fury.io/rb/is_uen)
 
-Simple gem to check whether an UEN has a valid format and date.
+Simple gem to check whether a UEN has a valid format and date.
 
 Format is obtained from [https://www.uen.gov.sg/ueninternet/faces/pages/admin/aboutUEN.jspx](https://www.uen.gov.sg/ueninternet/faces/pages/admin/aboutUEN.jspx), last updated/reviewed on 08 Jan 2018.
 
